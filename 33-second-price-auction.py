@@ -87,12 +87,12 @@ class Bidder():
             pass
             
         
-#players = [Bidder("Alice"), Bidder("Bob")]
-#print("Psst, secret!")
-#for player in players:
-#    print("%s's value is %.3f" % (player.name, player.own_val))
-#auction = Auction(players, verbose=True)
-#auction.run()
+players = [Bidder("Alice"), Bidder("Bob")]
+print("Psst, secret!")
+for player in players:
+    print("%s's value is %.3f" % (player.name, player.own_val))
+auction = Auction(players, verbose=True)
+auction.run()
 
 
 
@@ -107,59 +107,6 @@ for i in range(n):
 print("\nMean sale price: %.3f" % np.mean(montecarlo))
 print("%.2f probability of sale" % (len(montecarlo)/n) )
 plt.hist(montecarlo, bins =20)
-
-
-        
-"""
-25% N N -- No sale
-25% N Y -- Sale, 0.50
-25% Y N -- Sale, 0.50
-25% Y Y -- Sale... for what value?
-
-if you win, you pay the price you beat.
-don't shoot yourself in the foot.
-Just beat it by the minimum.
-
-So you won't pay to beat a price that's already above
-your own value.
-
-
-def fn(x):
-    return min(np.random.rand(), np.random.rand())
-    
-distribution --> skewed!
-
-not uniform anymore, but triangle
-
-1 --> overwritten by every other value, hence, 0 prob.
-0.9 --> overwritten by 80% of values.
-0.5 --> Never overwritten (max chance)
-
-probability?
-
-Expect value of this distribution?
-
-int(x * (1-x)) / int(1-x) between 0 and 1
-
-1/3 of the way between 0 and 1
-
-***
-
-prices settled... problem? step-ups
-
-why is there a spike in 0.50?
-
-reserve price: 0.50
-
-player A 0.8
-
-player B 0.51 (or very close to 50)
-
-A's first step will surpass B's own value. So A will pay 0.50, not .51
-
-***
-
-"""
         
         
 
