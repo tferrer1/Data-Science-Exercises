@@ -28,10 +28,13 @@ number of rows - 2 = substeps, '1 row per column'
 
 def convert(s, nRows):
     
+    if nRows == 1:
+        print(s)
+        return s
+    
     zz = []
     for i in range(nRows):
         zz.append([])
-        
     
     curr_row = 0
     downwards = True
@@ -39,7 +42,7 @@ def convert(s, nRows):
     
     for i in range(len(s)):
         
-        zz[curr_row].append([i])
+        zz[curr_row].append(s[i])
         
         if curr_row == 0:
             downwards = True
@@ -50,7 +53,7 @@ def convert(s, nRows):
             
             if i != len(s)-1:
                 for j in range(nRows):
-                    zz[i].append(" ")
+                    zz[j].append(" ")
                     
             curr_row -= 1
         
@@ -66,9 +69,33 @@ def convert(s, nRows):
                     if j != curr_row:
                         zz[j].append(" ")
                 curr_row -= 1
+                if curr_row == 0:
+                    for j in range(nRows):
+                        zz[j].append(" ")
     
-            
+    print("")    
+    printer = []
+    for i in range(nRows):
+        msg = ''
+        for char in zz[i]:
+            msg += char 
+        printer.append(msg)
+    
+    for line in printer:
+        print(line)
         
+    msg = ''
+    for row in zz:
+        for char in row:
+            if char != " ":
+                msg += char
+    
+    
+    print("\n"+msg)            
+    
+    return msg
+        
+convert("TheTimes03/Jan/2009Chancelloronbrinkofsecondbailoutforbanks.", 8)
         
         
                 
