@@ -95,7 +95,7 @@ def convert(s, nRows):
     
     return msg
         
-convert("TheTimes03/Jan/2009Chancelloronbrinkofsecondbailoutforbanks.", 8)
+convert("H", 8)
         
         
                 
