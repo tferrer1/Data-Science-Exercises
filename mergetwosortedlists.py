@@ -10,29 +10,46 @@ class ListNode:
     def __init__(self, x):
         self.val = x
         self.next = None
-        
-class Solution:
-    def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:       
-        lst = []      
-        while (l1 != None) or (l2 != None):
-            v1 = 1e999 if not l1 else l1.val
-            v2 = 1e999 if not l2 else l2.val
+ 
+# Naive approach
+# class Solution:
+#     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:       
+#         lst = []      
+#         while (l1 != None) or (l2 != None):
+#             v1 = 1e999 if not l1 else l1.val
+#             v2 = 1e999 if not l2 else l2.val
                         
-            if v2 <= v1:
-                lst.append(v2)
-                l2 = l2.next
-            else:
-                lst.append(v1)
-                l1 = l1.next
+#             if v2 <= v1:
+#                 lst.append(v2)
+#                 l2 = l2.next
+#             else:
+#                 lst.append(v1)
+#                 l1 = l1.next
 
-        node, sol = None, None
-        for val in lst[::-1]:
-            sol = ListNode(val)
-            sol.next = node
-            node = sol
+#         node, sol = None, None
+#         for val in lst[::-1]:
+#             sol = ListNode(val)
+#             sol.next = node
+#             node = sol
 
-        return sol
-   
+#         return sol
+
+# Recursive approach
+class Solution:
+    def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
+        if not(l1):
+            return l2
+        if not(l2):
+            return l1
+        if l1.val < l2.val:
+            l1.next = self.mergeTwoLists(l1.next, l2)
+            return l1
+        else:
+            l2.next = self.mergeTwoLists(l1, l2.next)
+            return l2
+        
+
+
 node = ListNode(4)
 nod = ListNode(2)
 nod.next = node
