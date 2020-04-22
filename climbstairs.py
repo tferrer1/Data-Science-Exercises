@@ -11,3 +11,9 @@ def climbStairs(n):
     for _ in range(n):
         a, b = b, a + b
     return a
+
+# def climbStairs(n):
+#     d = {-1:0,0:1}
+#     for s in range(1,n+1):
+#         d[s] = d[s-1] + d[s-2]
+#     return d[n]
