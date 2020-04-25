@@ -29,14 +29,3 @@ class Solution:
                 return False
         return check(p,q)
     
-
-
-p1 = TreeNode(1)
-p1.left = TreeNode(2)
-p1.right = TreeNode(1)
-
-q1 = TreeNode(1)
-q1.left = TreeNode(1)
-q1.right = TreeNode(2)
-
-print(Solution().isSameTree(p1, q1))
