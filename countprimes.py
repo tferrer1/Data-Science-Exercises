@@ -29,7 +29,7 @@ def countPrimes(n):
             primes.append(num)
             for x in range(1, int(n/num)+1):
                 deleted.add(x*num)
-    print(primes)
+    print(primes[10000])
     return c
     
 print(countPrimes(1000000))    

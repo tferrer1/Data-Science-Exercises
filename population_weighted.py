@@ -140,9 +140,9 @@ labels = ['pidgeon', 'hitfirst', 'grudger', 'tit4tat', 'scumbag']
 population = []
 
 init = {'pidgeon': 0,
-        'hitfirst':100,
-        'grudger':0,
-        'tit4tat':0,
+        'hitfirst':0,
+        'grudger':50,
+        'tit4tat':50,
         'scumbag':0}
 
 for i in range(init['pidgeon']):
